@@ -2,15 +2,17 @@
 const express = require("express");
 const PORT = process.env.PORT || 8080;
 const app = express();
+
 // Serve static content for the app from the "public" directory in the application directory.
 app.use(express.static("public"));
 
-db = require("./models");
+// Require models
+const db = require("./models");
+
 // Sets up the Express App
-var exphbs = require("express-handlebars");
+const exphbs = require("express-handlebars");
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
-
 
 
 app.use(routes);
