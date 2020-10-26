@@ -13,7 +13,7 @@ module.exports = function(sequelize, DataTypes) {
       }
     });
 
-    User.associate = function(models) {
+    User.associate = function(db) {
        User.hasMany(db.Questions, {
           onDelete: "cascade"
        });
