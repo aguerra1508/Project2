@@ -14,5 +14,5 @@ module.exports = function(app) {
         });
     });
 
-    app.post("/api/question", function)
+   // app.post("/api/question", function)
 }
