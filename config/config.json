@@ -2,21 +2,21 @@
   "development": {
     "username": "root",
     "password": "process.env.MYSQLPW",
-    "database": "developerDB",
+    "database": "quiz",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
     "password": "process.env.MYSQLPW",
-    "database": "database_test",
+    "database": "quiz",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "production": {
     "username": "root",
     "password": "process.env.MYSQLPW",
-    "database": "database_production",
+    "database": "quiz",
     "host": "127.0.0.1",
     "dialect": "mysql"
   }
