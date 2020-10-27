@@ -1,0 +1,32 @@
+body {
+    background-image: url("../test/imagesFile/quiztime.jpg");
+    background-size: 100%;
+}
+
+h1 {
+    font-size: 100px;
+    font-family: 'Sedgwick Ave Display', cursive;
+    text-align: center;
+    color: antiquewhite;
+}
+
+.input-group {
+    width: 300px;
+    align-items: center;
+    margin-left: 40%;
+    margin-top: 15%;
+}
+
+.leaders {
+    color: rgb(184, 184, 235);
+    column-count: 3;
+    column-gap: 5px;
+}
+
+.leaderboardRow {
+    color: rgb(184, 184, 235);
+}
+
+.scoreboard {
+    margin-left: 40px;
+}
