@@ -6,7 +6,7 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
 
-  UserAnswers.associate = function(db) {
+  /*UserAnswers.associate = function(db) {
     UserAnswers.belongsTo(db.Questions, {
       foreignKey: {
         allowNull: false
@@ -17,6 +17,6 @@ module.exports = function(sequelize, DataTypes) {
       onDelete: "cascade"
     });
     
-  };
+  };*/
   return UserAnswers;
 };

@@ -9,7 +9,7 @@ module.exports = function (sequelize, DataTypes) {
     }
   });
 
-  Answers.associate = function(db) {
+  /*Answers.associate = function(db) {
     Answers.belongsTo(db.Users, {
       foreignKey: {
         allowNull: false
@@ -25,7 +25,7 @@ module.exports = function (sequelize, DataTypes) {
       onDelete: "cascade"
     });
         
-  };
+  };*/
 
   return Answers;
 };

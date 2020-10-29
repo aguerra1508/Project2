@@ -1,4 +1,4 @@
-module.exports = function(sequelize, DataTypes) {
+/*module.exports = function(sequelize, DataTypes) {
   const Questions = sequelize.define("Questions", {
     question: {
       type: DataTypes.STRING,
@@ -17,4 +17,4 @@ module.exports = function(sequelize, DataTypes) {
   };
 
   return Questions;
-};
+};*/

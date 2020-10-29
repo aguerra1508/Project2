@@ -1,4 +1,4 @@
-module.exports = function(sequelize, DataTypes) {
+/*module.exports = function(sequelize, DataTypes) {
   const Hubs = sequelize.define("Hubs", {
     answered: {
       type: DataTypes.BOOLEAN,
@@ -30,4 +30,4 @@ module.exports = function(sequelize, DataTypes) {
 
     return Hubs;
   };
-};
+};*/
