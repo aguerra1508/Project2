@@ -1,9 +1,8 @@
 module.exports = function(sequelize, DataTypes) {
-    var highScore = sequelize.define("High Scores", {
+    var HighScores = sequelize.define("High Score", {
         rank: {
             type: DataTypes.INTEGER
         }
-            
-
     })
+    return HighScores
 }

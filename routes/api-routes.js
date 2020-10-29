@@ -1,78 +1,41 @@
-const db = require("../models");
+var db = require("./models");
 
-
+// Routes
+// =============================================================
 module.exports = function(app) {
-    
-    app.get("/api/posts/", function(req,res) {
-        db.User.findAll({}).then(function(dbUser) {
-            console.log(dbUser)
-            res.json(dbUser);
-        });
-    });
 
-    app.get("/api/posts/user", function(req,res) {
-        db.User.findAll({
-            where: {
-                name: req.params.name,
-                score: req.params.score
-            }
-        }).then(function(dbUser) {
-            console.log(dbUser)
-            res.json(dbUser);
-        });
+  // GET route for getting all of the todos
+  app.get("/api/questions", function(req, res) {
+    // findAll returns all entries for a table when used with no options
+    db.questions.findAll({}).then(function(questions) {
+      // We have access to the todos as an argument inside of the callback function
+      res.json(questions);
     });
-    
-    app.get("/api/posts/:id", function(req,res) {
-        db.User.findAll({
-            where: {
-                id: req.params.id
-            }
-        }).then(function(dbUser) {
-            console.log(dbUser)
-            res.json(dbUser);
-        });
-    });
-    
-    app.post("/api/posts", function(req,res){
-        console.log(req.body);
-        db.User.create({
-            name: req.body.name,
-            email: req.body.email,
-        }).then(function(dbUser){
-            console.log(dbUser)
-            res.json(dbUser);
-        });
-    });
-    
-    app.post("/api/posts/question", function(req,res){
-        console.log(req.body);
-        db.Questions.create({
-            question: req.body.question,
-        }).then(function(dbPost){
-            res.json(dbPost);
-        });
-    });
+  });
 
-    app.post("/api/posts/answers", function(req,res){
-        console.log(req.body);
-        db.Answers.create({
-            answer: req.body.answer
-        }).then(function(dbAnswers){
-            console.log(dbAnswers);
-            res.json(dbAnswers);
-        });
+  /*// POST route for saving a new todo
+  app.post("/api/todos", function(req, res) {
+    console.log(req.body);
+    // create takes an argument of an object describing the item we want to
+    // insert into our table. In this case we just we pass in an object with a text
+    // and complete property (req.body)
+    db.Todo.create({
+      text: req.body.text,
+      complete: req.body.complete
+    }).then(function(dbTodo) {
+      // We have access to the new todo as an argument inside of the callback function
+      res.json(dbTodo);
     });
-    
-    app.delete("/api/posts/:id", function(req,res) {
-        db.User.destroy({
-            where: {
-                id: req.params.id
-            }
-        }).then(function(dbUser) {
-            console.log(dbUser)
-            res.json(dbUser);
-        });
-    });
+  });
 
-   // app.post("/api/question", function)
-}
+  // DELETE route for deleting todos. We can get the id of the todo we want to delete from
+  // req.params.id
+  app.delete("/api/todos/:id", function(req, res) {
+
+  });
+
+  // PUT route for updating todos. We can get the updated todo from req.body
+  app.put("/api/todos", function(req, res) {
+
+  });*/
+};
