@@ -7,11 +7,7 @@
     "test": "npm run lint",
     "lint": "eslint --quiet .",
     "start": "node server.js",
-<<<<<<< HEAD
-    "fix": "eslint \"**/*.js\" -- fix"
-=======
     "fix": "eslint \"**/*.js\" --fix"
->>>>>>> master
   },
   "repository": {
     "type": "git",
