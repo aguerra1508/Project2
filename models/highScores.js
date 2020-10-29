@@ -1,9 +1,10 @@
 module.exports = function(sequelize, DataTypes) {
-    var highScore = sequelize.define("High Scores", {
-        rank: {
-            type: DataTypes.INTEGER
-        }
+  const HighScore = sequelize.define("HighScore", {
+    rank: {
+      type: DataTypes.INTEGER
+    }
             
 
-    })
-}
+  });
+  return (HighScore);
+};
