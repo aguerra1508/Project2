@@ -1,6 +1,6 @@
 -- Drops the blogger if it exists currently --
-DROP DATABASE IF EXISTS developerDB;
+DROP DATABASE IF EXISTS quiz;
 -- Creates the "blogger" database --
-CREATE DATABASE developerDB;
+CREATE DATABASE quiz;
 
-USE developerDB;
+USE quiz;

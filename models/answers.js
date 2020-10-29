@@ -1,13 +1,14 @@
 module.exports = function (sequelize, DataTypes) {
   const Answers = sequelize.define("Answers", {
-    answer: DataTypes.STRING,
-    //type: DataTypes.STRING,
-    //allowNull: false,
-    // validate: {
-    //   len: [1]
-    // }
+    answer: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1]
+      }
+    }
   });
-  /*Answers.associate = function(db) {
+  Answers.associate = function(db) {
     Answers.belongsTo(db.Users, {
       foreignKey: {
         allowNull: false
@@ -18,7 +19,11 @@ module.exports = function (sequelize, DataTypes) {
         allowNull: false
       }
     });
-  };*/
+
+    Answers.hasMany(db.Hub, {
+      onDelete: "cascade",
+    });
+  };
 
   return Answers;
 };

@@ -10,11 +10,19 @@ module.exports = function(sequelize, DataTypes) {
     },
     score: {
       type: DataTypes.INTEGER
+    },
+
+    rank: {
+      type: DataTypes.INTEGER
     }
   });
 
   Users.associate = function(db) {
     Users.hasMany(db.Questions, {
+      onDelete: "cascade"
+    });
+
+    Users.hasMany(db.Hub, {
       onDelete: "cascade"
     });
   };

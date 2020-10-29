@@ -5,5 +5,17 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false,
     }
   });
+
+  Questions.associate = function(db) {
+    Questions.hasMany(db.UserAnswers, {
+      onDelete: "cascade"
+    });
+
+    Questions.hasMany(db.Hub, {
+      onDelete: "cascade"
+    });
+  };
+  
+
   return Questions;
 };
