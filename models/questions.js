@@ -1,4 +1,4 @@
-/*module.exports = function(sequelize, DataTypes) {
+module.exports = function(sequelize, DataTypes) {
   const Questions = sequelize.define("Questions", {
     question: {
       type: DataTypes.STRING,
@@ -7,14 +7,15 @@
   });
 
   Questions.associate = function(db) {
-    Questions.hasMany(db.Answers, {
+    Questions.hasMany(db.UserAnswers, {
       onDelete: "cascade"
     });
 
-    Questions.hasMany(db.Hubs, {
+    Questions.hasMany(db.Hub, {
       onDelete: "cascade"
     });
   };
+  
 
   return Questions;
-};*/
+};

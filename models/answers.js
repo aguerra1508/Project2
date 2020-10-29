@@ -8,8 +8,7 @@ module.exports = function (sequelize, DataTypes) {
       }
     }
   });
-
-  /*Answers.associate = function(db) {
+  Answers.associate = function(db) {
     Answers.belongsTo(db.Users, {
       foreignKey: {
         allowNull: false
@@ -21,11 +20,10 @@ module.exports = function (sequelize, DataTypes) {
       }
     });
 
-    Answers.hasMany(db.Hubs, {
-      onDelete: "cascade"
+    Answers.hasMany(db.Hub, {
+      onDelete: "cascade",
     });
-        
-  };*/
+  };
 
   return Answers;
 };

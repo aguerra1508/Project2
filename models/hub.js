@@ -1,33 +1,34 @@
-/*module.exports = function(sequelize, DataTypes) {
-  const Hubs = sequelize.define("Hubs", {
+module.exports = function(sequelize, DataTypes) {
+  const Hub = sequelize.define("Hub", {
     answered: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
     }
   });
 
-  Hubs.assocaite = function(db) {
-    Hubs.belongsTo(db.Users, {
+  Hub.assocaite = function(db) {
+    Hub.belongsTo(db.Users, {
       foreignKey: {
         allowNull: false
       }
     });
-    Hubs.belongsTo(db.Questions, {
+    Hub.belongsTo(db.Questions, {
       foreignKey: {
         allowNull: false
       }
     });
-    Hubs.belongsTo(db.UserAnswers, {
+    Hub.belongsTo(db.UserAnswers, {
       foreignKey: {
         allowNull: false
       }
     });
-    Hubs.belongsTo(db.Answers, {
+    Hub.belongsTo(db.Answers, {
       foreignKey: {
         allowNull: false
       }
     });
 
-    return Hubs;
   };
-};*/
+
+  return Hub;
+};

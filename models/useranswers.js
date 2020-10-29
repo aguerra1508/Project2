@@ -6,17 +6,16 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
 
-  /*UserAnswers.associate = function(db) {
+  UserAnswers.associate = function(db) {
     UserAnswers.belongsTo(db.Questions, {
       foreignKey: {
         allowNull: false
       }
     });
 
-    UserAnswers.hasMany(db.Hubs,{
-      onDelete: "cascade"
+    UserAnswers.hasMany(db.Hub, {
+      onDelete: "cascade",
     });
-    
-  };*/
+  };
   return UserAnswers;
 };

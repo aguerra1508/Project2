@@ -1,9 +1,10 @@
-/*module.exports = function(sequelize, DataTypes) {
-  const Scores = sequelize.define("Scores", {
+module.exports = function(sequelize, DataTypes) {
+  const Score = sequelize.define("Score", {
     rank: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.INTEGER
     }
-  });
+            
 
-  return Scores;
-};*/
+  });
+  return Score;
+};
