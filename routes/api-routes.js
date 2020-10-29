@@ -7,33 +7,38 @@ module.exports = function(app) {
     res.send("works");
   });
     
-  /*app.get("/api/users/", function(req,res) {
-    db.User.findAll({}).then(function(dbUser) {
-      console.log(dbUser);
-      res.json(dbUser);
+  //GET route for getting all of the users
+  app.get("/api/users/", function(req,res) {
+    db.Users.findAll({}).then(function(dbUsers) {
+      console.log(dbUsers);
+      res.json(dbUsers);
     });
   });
 
-  app.post("/api/answers/", function(req,res){
-    console.log(req.body);
-    db.User.create({
+  //Post route for saving new user
+  app.post("/api/users/", function(req,res){
+    db.Users.create({
       name: req.body.name,
       email: req.body.email,
-    }).then(function(dbUser){
-      console.log(dbUser);
-      res.json(dbUser);
+      score: req.body.score,
+      rank: req.body.rank
+    }).then(function(dbUsers){
+      console.log(dbUsers);
+      res.json(dbUsers);
     });
   });
-    
-  app.post("/api/posts/question", function(req,res){
+  
+  //Post route for saving new question
+  app.post("/api/posts/questions", function(req,res){
     console.log(req.body);
     db.Questions.create({
       question: req.body.question,
-    }).then(function(dbPost){
-      res.json(dbPost);
+    }).then(function(dbQuestions){
+      res.json(dbQuestions);
     });
   });
-
+  
+  //Post route for saving new answer
   app.post("/api/posts/answers", function(req,res){
     console.log(req.body);
     db.Answers.create({
@@ -44,7 +49,7 @@ module.exports = function(app) {
     });
   });
     
-  app.delete("/api/posts/:id", function(req,res) {
+/*app.delete("/api/posts/:id", function(req,res) {
     db.User.destroy({
       where: {
         id: req.params.id
