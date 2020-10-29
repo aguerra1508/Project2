@@ -10,6 +10,10 @@ module.exports = function(sequelize, DataTypes) {
     },
     score: {
       type: DataTypes.INTEGER
+    },
+
+    rank: {
+      type: DataTypes.INTEGER
     }
   });
 
