@@ -7,7 +7,7 @@ module.exports = function(sequelize, DataTypes) {
   });
 
   UserAnswers.associate = function(db) {
-    UserAnswers.belongsTo(models.Questions, {
+    UserAnswers.belongsTo(db.Questions, {
       foreignKey: {
         allowNull: false
       }

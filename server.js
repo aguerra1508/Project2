@@ -17,6 +17,7 @@ app.set("view engine", "handlebars");
 
 app.use(routes);
 
+
 // Starts the server to begin listening
 db.sequelize.sync().then(function () {
   app.listen(PORT, function () {
