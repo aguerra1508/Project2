@@ -7,13 +7,12 @@ const basename = path.basename(__filename);
 const env = process.env.NODE_ENV || 'development';
 const config = require(__dirname + '/../config/config.json')[env];
 const db = {};
-require("dotenv").config();
 
 let sequelize;
 if (config.use_env_variable) {
   sequelize = new Sequelize(process.env[config.use_env_variable], config);
 } else {
-  sequelize = new Sequelize(config.database, config.username, process.env.MYSQL_PW, config);
+  sequelize = new Sequelize(config.database, config.username, process.env.MYSQLPW, config);
 }
 
 fs
@@ -23,7 +22,8 @@ fs
   })
   .forEach(file => {
     const model = require(path.join(__dirname, file))(sequelize, Sequelize.DataTypes);
-    //db[model.name] = model;
+    console.log("working here" + file)
+    db[model.name] = model;
   });
 
 Object.keys(db).forEach(modelName => {

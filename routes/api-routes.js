@@ -1,41 +1,63 @@
-var db = require("./models");
+const db = require("../models");
 
-// Routes
-// =============================================================
+
 module.exports = function(app) {
 
-  // GET route for getting all of the todos
-  app.get("/api/questions", function(req, res) {
-    // findAll returns all entries for a table when used with no options
-    db.questions.findAll({}).then(function(questions) {
-      // We have access to the todos as an argument inside of the callback function
-      res.json(questions);
+  app.get("/", function(req,res){
+    res.send("works");
+  });
+    
+  //GET route for getting all of the users
+  app.get("/api/users/", function(req,res) {
+    db.Users.findAll({}).then(function(dbUsers) {
+      console.log(dbUsers);
+      res.json(dbUsers);
     });
   });
 
-  /*// POST route for saving a new todo
-  app.post("/api/todos", function(req, res) {
+  //Post route for saving new user
+  app.post("/api/users/", function(req,res){
+    db.Users.create({
+      name: req.body.name,
+      email: req.body.email,
+      score: req.body.score,
+      rank: req.body.rank
+    }).then(function(dbUsers){
+      console.log(dbUsers);
+      res.json(dbUsers);
+    });
+  });
+  
+  //Post route for saving new question
+  app.post("/api/posts/questions", function(req,res){
     console.log(req.body);
-    // create takes an argument of an object describing the item we want to
-    // insert into our table. In this case we just we pass in an object with a text
-    // and complete property (req.body)
-    db.Todo.create({
-      text: req.body.text,
-      complete: req.body.complete
-    }).then(function(dbTodo) {
-      // We have access to the new todo as an argument inside of the callback function
-      res.json(dbTodo);
+    db.Questions.create({
+      question: req.body.question,
+    }).then(function(dbQuestions){
+      res.json(dbQuestions);
     });
   });
-
-  // DELETE route for deleting todos. We can get the id of the todo we want to delete from
-  // req.params.id
-  app.delete("/api/todos/:id", function(req, res) {
-
+  
+  //Post route for saving new answer
+  app.post("/api/posts/answers", function(req,res){
+    console.log(req.body);
+    db.Answers.create({
+      answer: req.body.answer
+    }).then(function(dbAnswers){
+      console.log(dbAnswers);
+      res.json(dbAnswers);
+    });
   });
-
-  // PUT route for updating todos. We can get the updated todo from req.body
-  app.put("/api/todos", function(req, res) {
-
-  });*/
+    
+/*app.delete("/api/posts/:id", function(req,res) {
+    db.User.destroy({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(dbUser) {
+      console.log(dbUser);
+      res.json(dbUser);
+    });
+  });
+  // app.post("/api/question", function)*/
 };
