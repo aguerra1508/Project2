@@ -6,7 +6,7 @@ module.exports = function(app) {
         questions: req.params.question
       }
     }).then(function(dbQuestions) {
-      console.log(res.question);
+      console.log(dbQuestions);
       res.json(dbQuestions);
     });
   });

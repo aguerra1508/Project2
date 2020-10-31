@@ -17,13 +17,9 @@ const exphbs = require("express-handlebars");
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-<<<<<<< HEAD
 
 
 require("./routes/questions-api-routes")(app);
-=======
-require("./routes/api-routes.js")(app);
->>>>>>> eaf52b1bbbb0d3467d717c7e45aa6bc1b1bd6fe1
 require("./routes/html-routes.js")(app);
 
 // Starts the server to begin listening

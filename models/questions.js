@@ -34,11 +34,5 @@ module.exports = function(sequelize, DataTypes) {
       onDelete: "cascade"
     });
   };
-<<<<<<< HEAD
-  
-console.log(Questions);
-=======
-
->>>>>>> eaf52b1bbbb0d3467d717c7e45aa6bc1b1bd6fe1
   return Questions;
 };
