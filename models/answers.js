@@ -7,7 +7,7 @@ module.exports = function (sequelize, DataTypes) {
     //   len: [1]
     // }
   });
-  /*Answers.associate = function(db) {
+  Answers.associate = function(db) {
     Answers.belongsTo(db.Users, {
       foreignKey: {
         allowNull: false
@@ -18,7 +18,7 @@ module.exports = function (sequelize, DataTypes) {
         allowNull: false
       }
     });
-  };*/
+  };
 
   return Answers;
 };

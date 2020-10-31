@@ -1,9 +1,29 @@
+
+const Sequelize = require("sequelize");
+
 module.exports = function(sequelize, DataTypes) {
   const Questions = sequelize.define("Questions", {
     question: {
-      type: DataTypes.STRING,
-      allowNull: false,
+      type: Sequelize.STRING
+    }, 
+    date: {
+      type: "TIMESTAMP",
+      defaultValue: Sequelize.literal("CURRENT_TIMESTAMP"),
+      allowNull: false
+    },
+    createdAt: {
+      type: DataTypes.DATE,
+      get() {
+        return moment(this.getDataValue("createdAt")).format("DD/MM/YYYY h:mm:ss");
+      }
+    },
+    updatedAt: {
+      type: DataTypes.DATE,
+      get() {
+        return moment(this.getDataValue("updatedAt")).format("DD/MM/YYYY h:mm:ss");
+      }
     }
   });
+  console.log(Questions.question);
   return Questions;
 };

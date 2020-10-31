@@ -6,7 +6,7 @@ module.exports = function (app) {
 
   // index route 
   app.get("/index", function (req, res) {
-    res.render("index", data);
+    res.render("questions", data);
   });
   // main route
   app.get("/main", function (req, res) {

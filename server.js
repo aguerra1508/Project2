@@ -16,7 +16,8 @@ app.set("view engine", "handlebars");
 
 
 
-require("./routes/api-routes.js")(app);
+require("./routes/questions-api-routes")(app);
+require("./routes/html-routes.js")(app);
 
 // Starts the server to begin listening
 db.sequelize.sync().then(function () {
