@@ -17,14 +17,12 @@ const exphbs = require("express-handlebars");
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-
-
 require("./routes/questions-api-routes")(app);
 require("./routes/html-routes.js")(app);
 
 // Starts the server to begin listening
 db.sequelize.sync().then(function () {
   app.listen(PORT, function () {
-    console.log("App listening on PORT https://localhost" + PORT);
+    console.log("App listening on PORT http://localhost:" + PORT);
   });
 });
