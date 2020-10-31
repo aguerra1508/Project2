@@ -1,6 +1,6 @@
--- Drops the blogger if it exists currently --
+-- Drops the quiz if it exists currently --
 DROP DATABASE IF EXISTS quiz;
--- Creates the "blogger" database --
+-- Creates the quiz database --
 CREATE DATABASE quiz;
 
 USE quiz;
