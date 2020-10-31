@@ -5,8 +5,8 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: false,
     }
   });
-
-  Questions.associate = function (db) {
+  
+  Questions.associate = function(db) {
     Questions.hasMany(db.UserAnswers, {
       onDelete: "cascade"
     });
@@ -15,7 +15,6 @@ module.exports = function (sequelize, DataTypes) {
       onDelete: "cascade"
     });
   };
-
 
   return Questions;
 };

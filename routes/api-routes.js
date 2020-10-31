@@ -5,6 +5,7 @@ module.exports = function(app) {
 
   app.get("/", function(req,res){
     res.send("works");
+    res.render("index");
   });
     
   //GET route for getting all of the users

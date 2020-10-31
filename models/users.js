@@ -20,7 +20,6 @@ module.exports = function(sequelize, DataTypes) {
     Users.hasMany(db.Questions, {
       onDelete: "cascade"
     });
-
     Users.hasMany(db.Hub, {
       onDelete: "cascade"
     });
