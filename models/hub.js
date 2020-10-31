@@ -1,4 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
+
   const Hub = sequelize.define("Hub", {
     answered: {
       type: DataTypes.BOOLEAN,
