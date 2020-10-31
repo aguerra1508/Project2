@@ -40,7 +40,7 @@ module.exports = {
       question: "What is your favorite holiday?"
     },
     {
-      question: "When is your bithday?"
+      question: "When is your birthday?"
     },
     {
       question: "What is your favorite food?"
