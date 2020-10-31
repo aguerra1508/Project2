@@ -6,7 +6,7 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
 
-  Hub.assocaite = function(db) {
+  Hub.associate = function(db) {
     Hub.belongsTo(db.Users, {
       foreignKey: {
         allowNull: false

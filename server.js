@@ -5,6 +5,8 @@ const app = express();
 require("dotenv").config();
 // Serve static content for the app from the "public" directory in the application directory.
 app.use(express.static("public"));
+app.use(express.urlencoded({extended:true}));
+app.subscribe(express.json());
 
 // Require models
 const db = require("./models");
@@ -17,6 +19,7 @@ app.set("view engine", "handlebars");
 
 
 require("./routes/api-routes.js")(app);
+require("./routes/html-routes.js")(app);
 
 // Starts the server to begin listening
 db.sequelize.sync().then(function () {
