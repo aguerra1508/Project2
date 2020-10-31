@@ -1,15 +1,15 @@
 // Dependencies
-const path = require("path");
+//const path = require("path");
 
 // Routes
 module.exports = function (app) {
 
   // index route 
-  app.get("/index", function (req, res) {
-    res.render("questions", data);
+  app.get("/", function (req, res) {
+    res.render("index");
   });
   // main route
-  app.get("/main", function (req, res) {
-    res.render("main", data);
+  app.get("/quiz", function (req, res) {
+    res.render("quiz");
   });
 };

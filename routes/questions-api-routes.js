@@ -1,14 +1,13 @@
-const db = require("../models/questions");
+const db = require("../models");
 module.exports = function(app) {
-  app.get("/api/q", function(req,res) {
-    db.Questions.findOne({
+  app.get("/api/questions/questions/:question", function(req,res) {
+    db.Questions.findAll({
       where: {
-        question: req.params.question
+        questions: req.params.question
       }
-    }).then(function(dbQuestions){
-
+    }).then(function(dbQuestions) {
+      console.log(res.question);
       res.json(dbQuestions);
-      console.log(dbQuestions);
     });
   });
 };

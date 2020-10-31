@@ -12,6 +12,10 @@ module.exports = function(sequelize, DataTypes) {
         allowNull: false
       }
     });
+
+    UserAnswers.hasMany(db.Hub, {
+      onDelete: "cascade",
+    });
   };
   return UserAnswers;
 };

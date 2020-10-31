@@ -24,6 +24,17 @@ module.exports = function(sequelize, DataTypes) {
       }
     }
   });
-  console.log(Questions.question);
+
+  Questions.associate = function(db) {
+    Questions.hasMany(db.UserAnswers, {
+      onDelete: "cascade"
+    });
+
+    Questions.hasMany(db.Hub, {
+      onDelete: "cascade"
+    });
+  };
+  
+console.log(Questions);
   return Questions;
 };
