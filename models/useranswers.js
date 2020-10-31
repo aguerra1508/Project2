@@ -1,4 +1,4 @@
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
   const UserAnswers = sequelize.define("UserAnswers", {
     question: {
       type: DataTypes.STRING,
@@ -6,7 +6,7 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
 
-  UserAnswers.associate = function(db) {
+  UserAnswers.associate = function (db) {
     UserAnswers.belongsTo(db.Questions, {
       foreignKey: {
         allowNull: false

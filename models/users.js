@@ -11,7 +11,6 @@ module.exports = function(sequelize, DataTypes) {
     score: {
       type: DataTypes.INTEGER
     },
-
     rank: {
       type: DataTypes.INTEGER
     }
@@ -21,12 +20,9 @@ module.exports = function(sequelize, DataTypes) {
     Users.hasMany(db.Questions, {
       onDelete: "cascade"
     });
-
     Users.hasMany(db.Hub, {
       onDelete: "cascade"
     });
   };
-
-
   return Users;
 };

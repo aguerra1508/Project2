@@ -4,6 +4,7 @@ const db = require("../models");
 module.exports = function(app) {
 
   app.get("/", function(req,res){
+    res.send("works");
     res.render("index");
   });
     
@@ -59,6 +60,5 @@ module.exports = function(app) {
       res.json(dbUser);
     });
   });
-
   // app.post("/api/question", function)*/
 };
