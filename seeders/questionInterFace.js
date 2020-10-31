@@ -1,10 +1,13 @@
+
+
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     return queryInterface.bulkInsert("Questions", [{
 
       question: "What is your middle name?"
     },
-    {question: "Who is your celebrity crush?"
+    {
+      question: "Who is your celebrity crush?"
     },
     {
       question: "How old are you?"
