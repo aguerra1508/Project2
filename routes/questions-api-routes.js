@@ -1,12 +1,12 @@
 const db = require("../models");
 module.exports = function(app) {
-  app.get("/api/questions/questions/:question", function(req,res) {
-    db.Questions.findAll({
+  console.log("passed");
+  app.get("/api/questions", function(req,res) {
+    db.Questions.findOne({
       where: {
         questions: req.params.question
       }
     }).then(function(dbQuestions) {
-      console.log(dbQuestions);
       res.json(dbQuestions);
     });
   });
