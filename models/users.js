@@ -1,3 +1,6 @@
+const bcrypt= require("bcryptjs");
+
+
 module.exports = function(sequelize, DataTypes) {
   const Users = sequelize.define("Users", {
     name: { 
@@ -11,8 +14,9 @@ module.exports = function(sequelize, DataTypes) {
     score: {
       type: DataTypes.INTEGER
     },
-    rank: {
-      type: DataTypes.INTEGER
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false
     }
   });
 

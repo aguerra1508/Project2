@@ -1,7 +1,11 @@
 {
   "development": {
     "username": "root",
+<<<<<<< HEAD
     "password": "Adipure1",
+=======
+    "password": "kmsdns123",
+>>>>>>> master
     "database": "quiz",
     "host": "127.0.0.1",
     "dialect": "mysql",
