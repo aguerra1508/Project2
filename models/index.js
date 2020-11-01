@@ -1,4 +1,3 @@
-
 'use strict';
 
 const fs = require('fs');
@@ -13,7 +12,7 @@ let sequelize;
 if (config.use_env_variable) {
   sequelize = new Sequelize(process.env[config.use_env_variable], config);
 } else {
-  sequelize = new Sequelize(config.database, config.username, process.env.MYSQL_PW, config);
+  sequelize = new Sequelize(config.database, config.username, config.password, config);
 }
 
 fs
@@ -23,7 +22,7 @@ fs
   })
   .forEach(file => {
     const model = require(path.join(__dirname, file))(sequelize, Sequelize.DataTypes);
-    console.log("working here" + file)
+    console.log("working here: " + file)
     db[model.name] = model;
   });
 

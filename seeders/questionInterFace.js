@@ -1,5 +1,3 @@
-
-
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     return queryInterface.bulkInsert("Questions", [{
@@ -43,7 +41,7 @@ module.exports = {
       question: "What is your favorite holiday?"
     },
     {
-      question: "When is your bithday?"
+      question: "When is your birthday?"
     },
     {
       question: "What is your favorite food?"

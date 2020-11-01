@@ -1,9 +1,9 @@
 const db = require("../models");
-
+const passport = require("passport");
 
 module.exports = function(app) {
 
-  /*app.get("/", function(req,res){
+  app.get("/", function(req,res){
     res.send("works");
     res.render("index");
   });
@@ -17,16 +17,26 @@ module.exports = function(app) {
   });
 
   //Post route for saving new user
-  app.post("/api/users/", function(req,res){
+  app.post("/signup", function(req,res){
     db.Users.create({
       name: req.body.name,
       email: req.body.email,
-      score: req.body.score,
-      rank: req.body.rank
+      //score: req.body.score,
+      password: req.body.password
     }).then(function(dbUsers){
-      console.log(dbUsers);
+      //console.log(dbUsers);
       res.json(dbUsers);
     });
+  });
+
+  app.post("/login", passport.authenticate ("local" , {
+    successRedirect: "/",
+    failureRedirect: "/"
+  }));
+
+  app.get("/logout", function(req,res) {
+    req.logout();
+    res.redirect("/login");
   });
   
   //Post route for saving new question
@@ -59,6 +69,5 @@ module.exports = function(app) {
       console.log(dbUser);
       res.json(dbUser);
     });
-  });
-  // app.post("/api/question", function)*/
+  });*/
 };
