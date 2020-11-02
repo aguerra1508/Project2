@@ -27,6 +27,18 @@ module.exports = function(app) {
       .catch(function(err) {
         res.status(401).json(err);
       });
+
+  app.post("/useranswers",isAuthenticated, function(req, res) {
+    db.Answers.create({
+      answer: req.body.answer
+    })
+      .then(function() {
+        console.log("api useranswers working");
+        res.redirect(307, "/questions");
+      })
+      .catch(function(err) {
+        res.status(401).json(err);
+      });
   });
 
   
