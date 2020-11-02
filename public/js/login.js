@@ -29,8 +29,8 @@ $(document).ready(function () {
       password: password
     })
       .then(function () {
-        window.location.replace("/index");
-        // If there's an error, log the error
+        res.send("testing api login post");
+        console.log("testing api login post");
       })
       .catch(function (err) {
         console.log(err);

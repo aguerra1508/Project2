@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-empty-function
-$(document).ready(function() {
+/*$(document).ready(function() {
 
     var question = [""];
     var answer = 
@@ -8,4 +8,4 @@ $(document).ready(function() {
 
 
 
-});
+});*/
