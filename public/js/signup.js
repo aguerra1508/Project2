@@ -29,8 +29,8 @@ $(document).ready(function () {
         password: password
       })
         .then(function (data) {
-          window.location.replace("/index");
-          // If there's an error, handle it by throwing up a bootstrap alert
+          res.send("testing api signup post");
+        console.log("testing api signup post");
         })
         .catch(handleLoginErr);
     }

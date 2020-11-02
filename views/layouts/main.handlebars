@@ -23,37 +23,7 @@
 </head>
 
 <body>
-    <h1>WHO DIS HERE?</h1>
-    <table class="scoreboard">
-        <thead>
-            <th class="leaders" scope="col">Rank</th>
-            <th class="leaders" scope="col">Name</th>
-            <th class="leaders" scope="col">Score</th>
-            </tr>
-        <tbody>
-            <tr class="leaderboardRow">
-                <th scope="row">1</th>
-                <td>{{Users.name}}</td>
-                <td>{{Users.score}}</td>
-            </tr>
-            <tr class="leaderboardRow">
-                <th scope="row">2</th>
-                <td>{{Users.name}}</td>
-                <td>{{Users.score}}</td>
-            </tr>
-            <tr class="leaderboardRow">
-                <th scope="row">3</th>
-                <td>{{Users_name}}</td>
-                <td>{{Users.score}}</td>
-            </tr>
-        </tbody>
-    </table>
-    {{body}}
-
-    <form action="logout" method="get">
-        <input type="submit" name="logout" value="LOGOUT" />
-    </form>
-
+    {{{body}}}
 </body>
 
 </html>
