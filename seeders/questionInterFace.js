@@ -1,7 +1,6 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     return queryInterface.bulkInsert("Questions", [{
-
       question: "Do you feel hopelessly lost in class?"
     },
     {
@@ -47,7 +46,6 @@ module.exports = {
       question: "Does your milkshake bring all the boys to the yard?"
     }]);
   },
-
   down: async (queryInterface, Sequelize) => {
     await queryInterface.bulkDelete("Questions", null, {});
   }
