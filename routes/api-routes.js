@@ -29,8 +29,6 @@ module.exports = function(app) {
       });
   });
 
-  
-    
   //GET route for getting all of the users
   /*app.get("/api/users/", function(req,res) {
     db.Users.findAll({}).then(function(dbUsers) {
@@ -44,6 +42,18 @@ module.exports = function(app) {
     res.redirect("/login");
   });
   
+
+  app.get("/questions", function(req,res) {
+    db.Questions.findOne({
+      where: {
+        questions: req.params.question
+      }
+    }).then(function(dbQuestions) {
+      console.log ("questions working");
+      res.json(dbQuestions);
+    });
+  });
+
   /*//Post route for saving new question
   app.post("/api/posts/questions", function(req,res){
     console.log(req.body);

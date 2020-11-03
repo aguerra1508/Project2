@@ -29,7 +29,7 @@ $(document).ready(function () {
         password: password
       })
         .then(function (data) {
-          res.send("testing api signup post");
+          res.send(data);
         console.log("testing api signup post");
         })
         .catch(handleLoginErr);
