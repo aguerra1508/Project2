@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-unused-vars
-function shuffle(array) {
+/*function shuffle(array) {
   let currentIndex = array.length,
     temporaryValue,
     randomIndex;
@@ -18,4 +18,15 @@ function shuffle(array) {
   }
 
   return array;
-}
+}*/
+
+/*$(document).ready(function () {
+  // Getting references to our form and inputs
+  const playQuiz = $("form.quiz");
+
+  // When the form is submitted, we validate there's an email and password entered
+  playQuiz.on("submit", function (res, event) {
+    event.preventDefault();
+    res.render("questions");
+  });
+});*/
