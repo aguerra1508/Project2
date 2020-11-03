@@ -1,11 +1,6 @@
 //eslint-disable-next-line no-empty-function
-/*$(document).ready(function() {
-
-    var question = [""];
-    var answer = 
-
-
-
-
-
-});*/
+$(document).ready(function() {
+console.log('is connected');
+    //var question = [""];
+    //var answer = 
+});

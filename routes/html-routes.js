@@ -19,9 +19,5 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/login.html"));
     console.log("clicked login");
   });
-  app.get("/questions", isAuthenticated, function(req, res) {
-    res.render("questions");
-    console.log("getting questions");
-  });
 
 };
