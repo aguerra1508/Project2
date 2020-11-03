@@ -13,6 +13,7 @@ module.exports = function(app) {
       questions: response
     }))
     .catch(err => console.error(err))
+
   });
   app.post("/login", passport.authenticate("local"), function(req, res) {
     res.redirect(307, "/questions");
@@ -32,5 +33,4 @@ module.exports = function(app) {
       .catch(function(err) {
         res.status(401).json(err);
       });
-    });
 };
