@@ -6,12 +6,18 @@ const isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function(app) {
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
-  app.get("/questions", isAuthenticated, function(req, res) {
-    const questions = db.Questions.findAll({})
+  app.post("/questions", isAuthenticated, function(req, res) {
+    db.Questions.findAll({})
     .then(response => res.render("questions", {
       questions: response
-    }));
+    }))
+    .catch(err => console.error(err))
+    //res.render("questions");
   });
+  
+  //app.post("/questions", isAuthenticated, function(req, res) {
+  //   res.render("questions");
+  // });
   // If user is able to log in successfully
   app.post("/login", passport.authenticate("local"), function(req, res) {
     res.redirect(307, "/questions");
