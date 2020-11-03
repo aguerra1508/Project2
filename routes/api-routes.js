@@ -77,7 +77,7 @@ module.exports = function(app) {
     });
   });
     
-/*app.delete("/api/posts/:id", function(req,res) {
+  /*app.delete("/api/posts/:id", function(req,res) {
     db.User.destroy({
       where: {
         id: req.params.id
@@ -87,4 +87,5 @@ module.exports = function(app) {
       res.json(dbUser);
     });
   });*/
+  });
 };
