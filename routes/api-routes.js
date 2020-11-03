@@ -1,15 +1,16 @@
 const db = require("../models");
 const passport = require("passport");
-
 // Requiring our custom middleware for checking if a user is logged in
 const isAuthenticated = require("../config/middleware/isAuthenticated");
-
 module.exports = function(app) {
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
   app.post("/questions", isAuthenticated, function(req, res) {
-    res.render("questions");
+    db.Questions.findAll({})
+      .then(response => res.render("questions", {
+        questions: response
+      }))
+      .catch(err => console.error(err));
   });
-  // If user is able to log in successfully
   app.post("/login", passport.authenticate("local"), function(req, res) {
     res.redirect(307, "/questions");
   });
@@ -27,9 +28,5 @@ module.exports = function(app) {
       .catch(function(err) {
         res.status(401).json(err);
       });
-  });
-  app.get("/logout", function(req,res) {
-    req.logout();
-    res.redirect("/login");
   });
 };

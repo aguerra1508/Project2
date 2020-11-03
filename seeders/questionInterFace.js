@@ -2,49 +2,49 @@ module.exports = {
   up: async (queryInterface, Sequelize) => {
     return queryInterface.bulkInsert("Questions", [{
 
-      question: "What is your middle name?"
+      question: "Do you feel hopelessly lost in class?"
     },
     {
-      question: "Who is your celebrity crush?"
+      question: "Are you from San Antonio?"
     },
     {
-      question: "How old are you?"
+      question: "Do you know the muffin man?"
     },
     {
-      question: "What is your favorite color?"
+      question: "Do you have pets?"
     },
     {
       question: "Have you ever been arrested?"
     },
     {
-      question: "What is your dream job?"
+      question: "Have you ever passed out drunk?"
     },
     {
-      question: "What is your favorite go to movie?"
+      question: "Have you ever fallen into the river walk?"
     },
     {
-      question: "What is you favorite current song?"
+      question: "Do you remember the Alamo?"
     },
     {
-      question: "What is you favorite throwback song?"
+      question: "Are the cowboys going to win this year?"
     },
     {
-      question: "What is your dream car?"
+      question: "Do you drive a truck?"
     },
     {
-      question: "Where would you love to live?"
+      question: "Are you married?"
     },
     {
-      question: "What is your favorite era?"
+      question: "Do you have children?"
     },
     {
-      question: "What is your favorite holiday?"
+      question: "Are you smarter than a 5th grader?"
     },
     {
-      question: "When is your birthday?"
+      question: "Do you believe in ghost?"
     },
     {
-      question: "What is your favorite food?"
+      question: "Does your milkshake bring all the boys to the yard?"
     }]);
   },
 
