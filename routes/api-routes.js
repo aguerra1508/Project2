@@ -14,7 +14,7 @@ module.exports = function(app) {
     res.redirect(307, "/questions");
   });
   // If user creates an account
-  app.post("/signup", passport.authenticate("local"), function(req, res) {
+  app.post("/signup", function(req, res) {
     db.Users.create({
       name: req.body.name,
       email: req.body.email,
