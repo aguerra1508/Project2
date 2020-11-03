@@ -11,7 +11,7 @@ module.exports = function(app) {
     .then(response => res.render("questions", {
       questions: response
     }))
-    .catch(err => console.error(err))
+    .catch(err => console.error(err));
     //res.render("questions");
   });
   
