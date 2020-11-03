@@ -12,15 +12,15 @@ module.exports = function(sequelize, DataTypes) {
     },
     createdAt: {
       type: DataTypes.DATE,
-      get() {
+      /*get() {
         return moment(this.getDataValue("createdAt")).format("DD/MM/YYYY h:mm:ss");
-      }
+      }*/
     },
     updatedAt: {
       type: DataTypes.DATE,
-      get() {
-        return moment(this.getDataValue("updatedAt")).format("DD/MM/YYYY h:mm:ss");
-      }
+      // get() {
+      //   return moment(this.getDataValue("updatedAt")).format("DD/MM/YYYY h:mm:ss");
+      // }
     }
   });
   
