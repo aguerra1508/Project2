@@ -1,4 +1,4 @@
-// eslint-disable-next-line no-empty-function
+//eslint-disable-next-line no-empty-function
 /*$(document).ready(function() {
 
     var question = [""];
