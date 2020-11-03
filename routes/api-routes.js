@@ -11,7 +11,7 @@ module.exports = function(app) {
     .then(response => res.render("questions", {
       questions: response
     }))
-    .catch(err => console.error(err))
+    .catch(err => console.error(err));
     //res.render("questions");
   });
   
@@ -23,7 +23,7 @@ module.exports = function(app) {
     res.redirect(307, "/questions");
   });
   // If user creates an account
-  app.post("/signup", passport.authenticate("local"), function(req, res) {
+  app.post("/signup", function(req, res) {
     db.Users.create({
       name: req.body.name,
       email: req.body.email,
@@ -36,7 +36,7 @@ module.exports = function(app) {
       .catch(function(err) {
         res.status(401).json(err);
       });
-    });
+  });
   app.get("/logout", function(req,res) {
     req.logout();
     res.redirect("/login");
