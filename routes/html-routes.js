@@ -13,7 +13,10 @@ module.exports = function(app) {
     console.log("clicked sign up");
   });
   app.get("/login", function(req, res) {
+    // If the user already has an account send them to the members page
+    if (req.user) {
+      res.render("questions");
+    }
     res.sendFile(path.join(__dirname, "../public/login.html"));
-    console.log("clicked login");
   });
 };

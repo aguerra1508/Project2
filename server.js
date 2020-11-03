@@ -17,6 +17,7 @@ app.subscribe(express.json());
 app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
 app.use(passport.initialize());
 app.use(passport.session());
+//app.use(function(req,res,next){ res.locals.currentUser = req.user; next(); });
 
 // Require models
 const db = require("./models");
@@ -29,6 +30,8 @@ app.set("view engine", "handlebars");
 require("./routes/questions-api-routes.js")(app);
 require("./routes/html-routes.js")(app);
 require("./routes/api-routes.js")(app);
+
+
 
 // Starts the server to begin listening
 db.sequelize.sync().then(function () {

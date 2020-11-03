@@ -1,4 +1,4 @@
-const db = require("../models");
+/*const db = require("../models");
 module.exports = function(app) {
   app.post("/api/users/", function(req,res){
     db.Users.create({
@@ -11,4 +11,4 @@ module.exports = function(app) {
       res.json(dbUsers);
     });
   });
-};
+};*/
