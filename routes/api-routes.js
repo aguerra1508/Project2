@@ -1,3 +1,4 @@
+/* eslint-disable prefer-const */
 // Dependencies
 const db = require("../models");
 const passport = require("passport");
@@ -16,38 +17,36 @@ module.exports = function(app) {
       }))
       .catch(err => console.error(err));
   });
-  app.get("/answers", isAuthenticated, function(req, res) {
-    db.UserAnswers.findAll({
-      where: {
-        QuestionId: 1
-      }
-      ,
-      group: ["name", "question"]
-    })
-      .then(answers => res.render("answers", {
-        //questions: response,
-        answers
-      }))
-      .catch(err => console.error(err));
+
+  app.get("/answers/:id", isAuthenticated, function(req, res) {
+    if (req.params.id === "16") {
+      res.redirect("/complete");
+    } else {
+      db.UserAnswers.findAll({
+        where: {
+          QuestionId: req.params.id
+        },
+        group: ["name", "question"]
+      })
+        .then(answers => res.render("answers", {
+          answers
+        }))
+        .catch(err => console.error(err));
+    }
   });
 
-
-  app.get("/answers", isAuthenticated, function(req, res) {
-    db.UserAnswers.findAll({
-      where: {
-        QuestionId: 1
-      },
-      group: "question"
-    })
-      .then(response => res.render("answers", {
-        questions: response
-      }))
-      .catch(err => console.error(err));
-  });
   app.post("/questions/quiz/:id", isAuthenticated, function(req, res) {
     if(req.body.questId === "15") {
       console.log("reached me");
-      res.redirect("/answers");
+      let questId = parseInt(req.body.questId);
+      const ans = (req.body.yes_no === "yes");
+      db.UserAnswers.create({
+        answer: ans,
+        question: req.body.questions,
+        name: req.user.name, 
+        UserId: req.user.id,
+        QuestionId: questId
+      }).then(() => res.redirect("/answers/1"));
     } else {
       console.log("api questions working");
       let questId = parseInt(req.body.questId);
@@ -61,6 +60,7 @@ module.exports = function(app) {
       }).then(() => res.redirect(`${++questId}`));
     }
   });
+
   app.post("/login", passport.authenticate("local"), function(req, res) {
     res.redirect("/questions/quiz/1");
     console.log("api login working");
@@ -83,17 +83,4 @@ module.exports = function(app) {
         res.status(401).json(err);
       });
   });
-
-
-  /*app.post("/answers", function(req,res) {
-    console.log("got it up to here");
-    db.UserAnswers.findAll({
-      question: {
-        where: {
-          UserAnswers: true
-        }
-      }
-    });
-      
-  });*/
 };

@@ -23,8 +23,9 @@
 </div>
 <br>
 <div class="d-flex justify-content-center align-items-center">
-
-    <form method="POST">
+    {{#each (limit answers 1)}}
+    <form action="/answers/{{inc dataValues.QuestionId}}" method="get">
         <input type="submit" name="nextAnswer" value="NEXT" />
     </form>
+    {{/each}}
 </div>
