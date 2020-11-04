@@ -1,6 +1,7 @@
 body {
     margin: 15%;
     text-align: center;
+    background-image: url("../imagesFile/question-background.jpg");
 }
 
 h1 {
