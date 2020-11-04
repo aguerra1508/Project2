@@ -1,3 +1,6 @@
+body {
+background-image: url("../imagesFile/question-background.jpg");
+}
 h1 {
     font-size: 100px;
     font-family: 'Sedgwick Ave Display', cursive;
