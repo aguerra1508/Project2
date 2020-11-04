@@ -1,3 +1,4 @@
+// Dependencies
 const db = require("../models");
 const passport = require("passport");
 // Requiring our custom middleware for checking if a user is logged in
@@ -30,17 +31,20 @@ module.exports = function(app) {
     console.log("api login working");
   });
   // If user creates an account
-  app.post("/signup", function(req, res) {
+  app.post("/signup", function (req, res) {
+    // Adds data to DB
     db.Users.create({
       name: req.body.name,
       email: req.body.email,
       password: req.body.password
     })
-      .then(function() {
+    // Once account created, log them in
+      .then(function () {
         console.log("api sign up working");
         res.redirect(307, "/login");
       })
-      .catch(function(err) {
+      // If error, catch error
+      .catch(function (err) {
         res.status(401).json(err);
       });
   });

@@ -1,4 +1,3 @@
-// eslint-disable-next-line no-unused-vars
 /*function shuffle(array) {
   let currentIndex = array.length,
     temporaryValue,
