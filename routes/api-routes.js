@@ -1,4 +1,4 @@
-// Dependencies
+/ Dependencies
 const db = require("../models");
 const passport = require("passport");
 // Requiring our custom middleware for checking if a user is logged in
@@ -18,6 +18,9 @@ module.exports = function(app) {
   });
   app.get("/answers", isAuthenticated, function(req, res) {
     db.UserAnswers.findAll({
+      where: {
+        QuestionId: 1
+      },
       group: "question"
     })
       .then(response => res.render("answers", {
@@ -64,13 +67,14 @@ module.exports = function(app) {
         res.status(401).json(err);
       });
   });
-
-
-  app.post("/answers", function(req,res) {
+  /*app.post("/answers", function(req,res) {
     console.log("got it up to here");
-    db.UserAnswers.create({
-      yes: req.body.yes
+    db.UserAnswers.findAll({
+      question: {
+        where: {
+          UserAnswers: true
+        }
+      }
     });
-      
-  });
+  });*/
 };
