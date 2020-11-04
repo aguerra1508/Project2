@@ -1,28 +1,17 @@
-
 module.exports = function (sequelize, DataTypes) {
-  // eslint-disable-next-line prefer-const
-  let UserAnswers = sequelize.define("UserAnswers", {
+  const UserAnswers = sequelize.define("UserAnswers", {
+    question: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     answer: {
       type: DataTypes.BOOLEAN,
       allowNull: false
     },
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false
+    }  
   });
-
-  UserAnswers.associate = function (db) {
-    UserAnswers.belongsTo(db.Questions, {
-      foreignKey: {
-        allowNull: false
-      }
-    });
-    UserAnswers.belongsTo(db.Users, {
-      foreignKey: {
-        allowNull: false
-      }
-    });
-
-    UserAnswers.hasMany(db.Hub, {
-      onDelete: "cascade",
-    });
-  };
   return UserAnswers;
 };

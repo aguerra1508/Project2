@@ -21,13 +21,8 @@ module.exports = function(sequelize, DataTypes) {
   });
 
   Users.associate = function(db) {
-    Users.hasMany(db.Questions, {
-      onDelete: "cascade"
-    });
+    
     Users.hasMany(db.UserAnswers, {
-      onDelete: "cascade"
-    });
-    Users.hasMany(db.Hub, {
       onDelete: "cascade"
     });
   };
