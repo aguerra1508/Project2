@@ -6,7 +6,7 @@ const session = require("express-session");
 // Requiring passport as we've configured it
 const passport = require("./config/passport");
 require("dotenv").config();
-
+const Handlebars = require("handlebars");
 
 // Serve static content for the app from the "public" directory in the application directory.
 app.use(express.static("public"));
@@ -26,9 +26,17 @@ const exphbs = require("express-handlebars");
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
+// eslint-disable-next-line no-unused-vars
+Handlebars.registerHelper("inc", function(value,options) 
+{
+  return parseInt(value) + 1;
+});
+
 //require("./routes/questions-api-routes.js")(app);
 require("./routes/html-routes.js")(app);
 require("./routes/api-routes.js")(app);
+
+
 
 // Starts the server to begin listening
 db.sequelize.sync().then(function () {
