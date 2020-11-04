@@ -2,6 +2,8 @@
 
 <div>{{#each questions}}
     <p>{{dataValues.question}}</p>
+    <input type="radio" name="yes_no">Yes</input>
+    <input type="radio" name="yes_no">No</input>
     {{/each}}
     <input type="radio" name="yes">Yes</input>
     <input type="radio" name="no">No</input>
@@ -13,4 +15,8 @@
 
 <form action="logout" method="get">
     <input type="submit" name="logout" value="LOGOUT" />
+</form>
+
+<form action="quiz" method="get">
+    <input type="submit" name="quiz" value="SUBMIT" />
 </form>
