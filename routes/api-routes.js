@@ -3,30 +3,32 @@ const db = require("../models");
 const passport = require("passport");
 // Requiring our custom middleware for checking if a user is logged in
 const isAuthenticated = require("../config/middleware/isAuthenticated");
-
-// eslint-disable-next-line prefer-const
-let increment = 1;
-
-module.exports = function (app) {
+module.exports = function(app) {
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
-  app.post("/questions", isAuthenticated, function (req, res) {
-    console.log("api questions working");
-    // Pulling questions from DB
+  app.get("/questions/quiz/:id", isAuthenticated, function(req, res) {
     db.Questions.findAll({
-      // Pull only the specified question in at at time
       where: {
-        id: increment }
-      // Rendering the questions page
-    }).then(response => res.render("questions", {
-      // Post question to page
-      questions: response
-      // If error, catch error
-    })).catch(err => console.error(err));
+        id: req.params.id
+      },
+    })
+      .then(response => res.render("questions", {
+        questions: response
+      }))
+      .catch(err => console.error(err));
   });
-  // If user has an account in the DB, log them in and send them to the questions page
-  app.post("/login", passport.authenticate("local"), function (req, res) {
+  app.post("/questions/quiz/:id", isAuthenticated, function(req, res) {
+    console.log("api questions working");
+    let questId = parseInt(req.body.questId);
+    const ans = (req.body.yes_no === "yes");
+    db.UserAnswers.create({
+      answer: ans,
+      UserId: req.user.id,
+      QuestionId: questId
+    }).then(() => res.redirect(`${++questId}`));
+  });
+  app.post("/login", passport.authenticate("local"), function(req, res) {
+    res.redirect("/questions/quiz/1");
     console.log("api login working");
-    res.redirect(307, "/questions");
   });
   // If user creates an account
   app.post("/signup", function (req, res) {
@@ -45,5 +47,14 @@ module.exports = function (app) {
       .catch(function (err) {
         res.status(401).json(err);
       });
+  });
+
+
+  app.post("/answers", function(req,res) {
+    console.log("got it up to here");
+    db.UserAnswers.create({
+      yes: req.body.yes
+    });
+      
   });
 };

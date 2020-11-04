@@ -1,13 +1,20 @@
+
 module.exports = function (sequelize, DataTypes) {
-  const UserAnswers = sequelize.define("UserAnswers", {
-    question: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    }
+  // eslint-disable-next-line prefer-const
+  let UserAnswers = sequelize.define("UserAnswers", {
+    answer: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false
+    },
   });
 
   UserAnswers.associate = function (db) {
     UserAnswers.belongsTo(db.Questions, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
+    UserAnswers.belongsTo(db.Users, {
       foreignKey: {
         allowNull: false
       }
