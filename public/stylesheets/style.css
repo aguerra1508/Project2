@@ -2,6 +2,7 @@ body {
     margin: 15%;
     text-align: center;
     background-image: url("../imagesFile/question-background.jpg");
+    background-size: cover;
 }
 
 h1 {
@@ -9,6 +10,7 @@ h1 {
     font-family: 'Sedgwick Ave Display', cursive;
     text-align: center;
     color: black;
+    
 }
 
 #button-addon2 {
@@ -37,6 +39,7 @@ h1 {
     position: absolute;
     margin-top: -200px;
     font-family: 'Lakki Reddy', cursive;
+   
 }
 
 .wrapper {
