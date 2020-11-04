@@ -31,10 +31,7 @@ Handlebars.registerHelper("limit", function (arr, limit){
   if (!Array.isArray(arr)) { return [];}
   return arr.slice(0, limit);
 });
-Handlebars.registerPartial(
-  "question", 
-  "{{dataValues.name}} answered {{dataValues.answer}}"
-);
+
 //require("./routes/questions-api-routes.js")(app);
 require("./routes/html-routes.js")(app);
 require("./routes/api-routes.js")(app);
