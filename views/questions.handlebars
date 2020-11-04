@@ -1,20 +1,21 @@
-<h1>Testing questions</h1>
+<h1>WHO DIS?</h1>
 
 <div>{{#each questions}}
     <p>{{dataValues.question}}</p>
+    <form method="POST">
+        <input type="hidden" name="questId" value="{{dataValues.id}}" />
+        <input type="radio" class="yes" name="yes_no" value="yes">Yes</input>
+        <input type="radio" class="no" name="yes_no" value="no">No</input>
+        <input id="next" type="submit" name="quiz" value="Next" />
+    </form>
     {{/each}}
-    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" name="yes_no">Yes</input>
-    </br>
-    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" name="yes_no">No</input>
 </div>
-<form action="next" method="get">
-    <input type="submit" name="next" value="NEXT" />
-</form>
+<br>
+<br>
+
+
+
 
 <form action="logout" method="get">
     <input type="submit" name="logout" value="LOGOUT" />
-</form>
-
-<form action="quiz" method="get">
-    <input type="submit" name="quiz" value="SUBMIT" />
 </form>
