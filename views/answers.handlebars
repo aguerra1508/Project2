@@ -1,5 +1,3 @@
-<div>{{#each questions }}
-    <p>{{dataValues.question}}</p>
-    <p>{{yes}}
-        {{/each}}
-</div>
+{{#each questions}}
+<p>{{dataValues.question (dataValues.name)}}</p>
+{{/each}}
