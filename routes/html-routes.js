@@ -17,7 +17,7 @@ module.exports = function(app) {
     console.log("clicked login");
   });
   // Log user out if logout clicked
-  app.get("/logout", function(req,res) {
+  app.get("/questions/quiz/logout", function(req,res) {
     req.logout();
     res.redirect("/login");
   });

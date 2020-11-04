@@ -27,11 +27,10 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // eslint-disable-next-line no-unused-vars
-Handlebars.registerHelper("inc", function(value,options) 
-{
-  return parseInt(value) + 1;
-});
-
+Handlebars.registerPartial(
+  "question", 
+  "{{dataValues.name}} answered {{dataValues.answer}}"
+);
 //require("./routes/questions-api-routes.js")(app);
 require("./routes/html-routes.js")(app);
 require("./routes/api-routes.js")(app);
