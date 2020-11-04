@@ -1,5 +1,30 @@
-{{#each questions}}
-<p>{{dataValues.question}}</p>
-{{#each dataValues.name}} {{this}} {{/each}}
-{{>question question=.}}
-{{/each}}
+{{#each (limit answers 1)}}
+{{!-- <p>{{dataValues.question}}</p> --}}
+<title>Who Dis?</title>
+<h1>WHO DIS?</h1>
+<br>
+<br>
+<div class="d-flex justify-content-center align-items-center">
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title text-center">Question: {{dataValues.question}}</h5>
+            {{/each}}
+            <h6 class="card-subtitle mb-2 text-muted"></h6>
+            <div class="collapse multi-collapse" id="collapseID">
+                {{#each answers}}
+                <p class="card-text">{{dataValues.name}}: <b>{{dataValues.answer}}</b></p>
+                {{/each}}
+            </div>
+            <br>
+            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseID"
+                aria-expanded="false" aria-controls="collapseID">REVEAL</button>
+        </div>
+    </div>
+</div>
+<br>
+<div class="d-flex justify-content-center align-items-center">
+
+    <form method="POST">
+        <input type="submit" name="nextAnswer" value="NEXT" />
+    </form>
+</div>

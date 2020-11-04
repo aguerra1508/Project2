@@ -18,6 +18,25 @@ module.exports = function(app) {
   });
   app.get("/answers", isAuthenticated, function(req, res) {
     db.UserAnswers.findAll({
+      where: {
+        QuestionId: 1
+      }
+      ,
+      group: ["name", "question"]
+    })
+      .then(answers => res.render("answers", {
+        //questions: response,
+        answers
+      }))
+      .catch(err => console.error(err));
+  });
+
+
+  app.get("/answers", isAuthenticated, function(req, res) {
+    db.UserAnswers.findAll({
+      where: {
+        QuestionId: 1
+      },
       group: "question"
     })
       .then(response => res.render("answers", {
@@ -66,11 +85,15 @@ module.exports = function(app) {
   });
 
 
-  app.post("/answers", function(req,res) {
+  /*app.post("/answers", function(req,res) {
     console.log("got it up to here");
-    db.UserAnswers.create({
-      yes: req.body.yes
+    db.UserAnswers.findAll({
+      question: {
+        where: {
+          UserAnswers: true
+        }
+      }
     });
       
-  });
+  });*/
 };
