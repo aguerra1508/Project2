@@ -2,12 +2,10 @@
 
 <div>{{#each questions}}
     <p>{{dataValues.question}}</p>
-    <input type="radio" name="yes_no">Yes</input>
-    <input type="radio" name="yes_no">No</input>
     {{/each}}
-    <input type="radio" name="yes">Yes</input>
-    <input type="radio" name="no">No</input>
-
+    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" name="yes_no">Yes</input>
+    </br>
+    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" name="yes_no">No</input>
 </div>
 <form action="next" method="get">
     <input type="submit" name="next" value="NEXT" />
