@@ -4,18 +4,33 @@ const passport = require("passport");
 const isAuthenticated = require("../config/middleware/isAuthenticated");
 module.exports = function(app) {
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
-  app.post("/questions", isAuthenticated, function(req, res) {
-    db.Questions.findAll({})
+  app.get("/questions/quiz/:id", isAuthenticated, function(req, res) {
+    db.Questions.findAll({
+      where: {
+        id: req.params.id
+      },
+    })
       .then(response => res.render("questions", {
         questions: response
       }))
       .catch(err => console.error(err));
   });
+  app.post("/questions/quiz/:id", isAuthenticated, function(req, res) {
+    console.log("api questions working");
+    let questId = parseInt(req.body.questId);
+    const ans = (req.body.yes_no === "yes");
+    db.UserAnswers.create({
+      answer: ans,
+      UserId: req.user.id,
+      QuestionId: questId
+    }).then(() => res.redirect(`${++questId}`));
+  });
   app.post("/login", passport.authenticate("local"), function(req, res) {
-    res.redirect(307, "/questions");
+    res.redirect("/questions/quiz/1");
+    console.log("api login working");
   });
   // If user creates an account
-  app.post("/signup", passport.authenticate("local"), function(req, res) {
+  app.post("/signup", function(req, res) {
     db.Users.create({
       name: req.body.name,
       email: req.body.email,
@@ -23,10 +38,19 @@ module.exports = function(app) {
     })
       .then(function() {
         console.log("api sign up working");
-        res.redirect(307, "/questions");
+        res.redirect(307, "/login");
       })
       .catch(function(err) {
         res.status(401).json(err);
       });
+  });
+
+
+  app.post("/answers", function(req,res) {
+    console.log("got it up to here");
+    db.UserAnswers.create({
+      yes: req.body.yes
+    });
+      
   });
 };

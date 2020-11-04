@@ -23,11 +23,6 @@ module.exports = function(sequelize, DataTypes) {
         allowNull: false
       }
     });
-    Hub.belongsTo(db.Answers, {
-      foreignKey: {
-        allowNull: false
-      }
-    });
 
   };
 
