@@ -1,3 +1,4 @@
+// Dependencies
 const bcrypt= require("bcryptjs");
 
 module.exports = function(sequelize, DataTypes) {

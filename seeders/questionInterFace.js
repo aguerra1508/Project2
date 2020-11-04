@@ -1,4 +1,5 @@
 module.exports = {
+  // eslint-disable-next-line no-unused-vars
   up: async (queryInterface, Sequelize) => {
     return queryInterface.bulkInsert("Questions", [{
       question: "Do you feel hopelessly lost in class?"
@@ -46,6 +47,7 @@ module.exports = {
       question: "Does your milkshake bring all the boys to the yard?"
     }]);
   },
+  // eslint-disable-next-line no-unused-vars
   down: async (queryInterface, Sequelize) => {
     await queryInterface.bulkDelete("Questions", null, {});
   }
