@@ -5,7 +5,13 @@
     <input type="radio" name="yes_no">Yes</input>
     <input type="radio" name="yes_no">No</input>
     {{/each}}
+    <input type="radio" name="yes">Yes</input>
+    <input type="radio" name="no">No</input>
+
 </div>
+<form action="next" method="get">
+    <input type="submit" name="next" value="NEXT" />
+</form>
 
 <form action="logout" method="get">
     <input type="submit" name="logout" value="LOGOUT" />
