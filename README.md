@@ -30,6 +30,10 @@ The application is also deployed to Heroku and may be accessed via the following
 
 ## Usage
 
+Usage demonstrated via the gif below:
+
+![Who Dis? App](https://github.com/aguerra1508/Project2/blob/master/Untitled_%20Nov%204%2C%202020%2011_22%20PM.gif)
+
 ## Credits
 
 Node.js: https://nodejs.org/en/
