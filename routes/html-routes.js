@@ -25,6 +25,7 @@ module.exports = function(app) {
     req.logout();
     res.redirect("/login");
   });
+
   app.get("/complete", function(req,res) {
     req.logout();
     res.redirect("/login");

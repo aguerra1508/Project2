@@ -1,5 +1,3 @@
-
-/* eslint-disable prefer-const */
 // Dependencies
 const db = require("../models");
 const passport = require("passport");
@@ -18,7 +16,6 @@ module.exports = function(app) {
       }))
       .catch(err => console.error(err));
   });
-
   app.get("/answers/:id", isAuthenticated, function(req, res) {
     if (req.params.id === "16") {
       res.redirect("/complete");
@@ -35,10 +32,10 @@ module.exports = function(app) {
         .catch(err => console.error(err));
     }
   });
-
   app.post("/questions/quiz/:id", isAuthenticated, function(req, res) {
     if(req.body.questId === "15") {
       console.log("reached me");
+      // eslint-disable-next-line prefer-const
       let questId = parseInt(req.body.questId);
       const ans = (req.body.yes_no === "yes");
       db.UserAnswers.create({
@@ -61,7 +58,6 @@ module.exports = function(app) {
       }).then(() => res.redirect(`${++questId}`));
     }
   });
-
   app.post("/login", passport.authenticate("local"), function(req, res) {
     res.redirect("/questions/quiz/1");
     console.log("api login working");
