@@ -1,3 +1,14 @@
-{{#each questions}}
-<p>{{dataValues.question (dataValues.name)}}</p>
-{{/each}}
+<h1>WHO DIS?</h1>
+<div>{{#each questions}}
+    <p>{{dataValues.question}}</p>
+    <p>{{@index}} {{dataValues.name}}</p>
+    {{/each}}
+    <form method="POST">
+        <input id="next" type="submit" name="quiz" value="Next" />
+    </form>
+</div>
+<br>
+<br>
+<form action="logout" method="get">
+    <input type="submit" name="logout" value="LOGOUT" />
+</form>

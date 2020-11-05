@@ -16,15 +16,34 @@ module.exports = function(app) {
       }))
       .catch(err => console.error(err));
   });
+  app.get("/answers", isAuthenticated, function(req, res) {
+    db.UserAnswers.findAll({
+      where: {
+        QuestionId: 1
+      },
+      group: "question"
+    })
+      .then(response => res.render("answers", {
+        questions: response
+      }))
+      .catch(err => console.error(err));
+  });
   app.post("/questions/quiz/:id", isAuthenticated, function(req, res) {
-    console.log("api questions working");
-    let questId = parseInt(req.body.questId);
-    const ans = (req.body.yes_no === "yes");
-    db.UserAnswers.create({
-      answer: ans,
-      UserId: req.user.id,
-      QuestionId: questId
-    }).then(() => res.redirect(`${++questId}`));
+    if(req.body.questId === "15") {
+      console.log("reached me");
+      res.redirect("/answers");
+    } else {
+      console.log("api questions working");
+      let questId = parseInt(req.body.questId);
+      const ans = (req.body.yes_no === "yes");
+      db.UserAnswers.create({
+        answer: ans,
+        question: req.body.questions,
+        name: req.user.name, 
+        UserId: req.user.id,
+        QuestionId: questId
+      }).then(() => res.redirect(`${++questId}`));
+    }
   });
   app.post("/login", passport.authenticate("local"), function(req, res) {
     res.redirect("/questions/quiz/1");
@@ -48,14 +67,14 @@ module.exports = function(app) {
         res.status(401).json(err);
       });
   });
-
-
-  // eslint-disable-next-line no-unused-vars
-  app.post("/answers", function(req,res) {
+  /*app.post("/answers", function(req,res) {
     console.log("got it up to here");
-    db.UserAnswers.create({
-      yes: req.body.yes
+    db.UserAnswers.findAll({
+      question: {
+        where: {
+          UserAnswers: true
+        }
+      }
     });
-      
-  });
+  });*/
 };
