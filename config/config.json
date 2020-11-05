@@ -1,7 +1,8 @@
+
 {
   "development": {
     "username": "root",
-    "password": "process.env.MYSQL_PW",
+    "password": "",
     "database": "quiz",
     "host": "127.0.0.1",
     "dialect": "mysql",
