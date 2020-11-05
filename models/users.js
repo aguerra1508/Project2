@@ -1,6 +1,5 @@
 // Dependencies
 const bcrypt= require("bcryptjs");
-
 module.exports = function(sequelize, DataTypes) {
   const Users = sequelize.define("Users", {
     name: { 
@@ -16,9 +15,7 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     }
   });
-
   Users.associate = function(db) {
-    
     Users.hasMany(db.UserAnswers, {
       onDelete: "cascade"
     });
