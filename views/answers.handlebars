@@ -1,14 +1,15 @@
 <h1>WHO DIS?</h1>
 <div>{{#each questions}}
     <p>{{dataValues.question}}</p>
-    <p>{{@index}} {{dataValues.name}}</p>
+    <p>{{dataValues.name}}</p>
     {{/each}}
     <form method="POST">
-        <input id="next" type="submit" name="quiz" value="Next" />
+        <!--<input id="next" type="submit" name="quiz" value="Next" /> -->
+        <button type="submit" class="btn btn-primary">Logout</button>
     </form>
 </div>
 <br>
 <br>
 <form action="logout" method="get">
-    <input type="submit" name="logout" value="LOGOUT" />
+    <button type="submit" class="btn btn-primary">Logout</button>
 </form>

@@ -1,4 +1,4 @@
-// Dependencies
+//Dependencies
 const db = require("../models");
 const passport = require("passport");
 // Requiring our custom middleware for checking if a user is logged in
