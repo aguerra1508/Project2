@@ -27,10 +27,13 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // eslint-disable-next-line no-unused-vars
-Handlebars.registerPartial(
-  "question", 
-  "{{dataValues.name}} answered {{dataValues.answer}}"
-);
+Handlebars.registerHelper("limit", function (arr, limit){
+  if (!Array.isArray(arr)) { return [];}
+  return arr.slice(0, limit);
+});
+// eslint-disable-next-line no-unused-vars
+Handlebars.registerHelper("inc", function(value, options)
+{return parseInt(value) + 1; });
 //require("./routes/questions-api-routes.js")(app);
 require("./routes/html-routes.js")(app);
 require("./routes/api-routes.js")(app);
