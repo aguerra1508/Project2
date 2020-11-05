@@ -33,7 +33,7 @@ Handlebars.registerHelper("limit", function (arr, limit){
 });
 // eslint-disable-next-line no-unused-vars
 Handlebars.registerHelper("inc", function(value, options)
- {return parseInt(value) + 1; });
+{return parseInt(value) + 1; });
 //require("./routes/questions-api-routes.js")(app);
 require("./routes/html-routes.js")(app);
 require("./routes/api-routes.js")(app);
