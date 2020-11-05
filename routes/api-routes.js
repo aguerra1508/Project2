@@ -1,3 +1,4 @@
+
 /* eslint-disable prefer-const */
 // Dependencies
 const db = require("../models");
