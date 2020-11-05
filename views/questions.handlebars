@@ -4,9 +4,9 @@
     <form method="POST">
         <input type="hidden" name="questId" value="{{dataValues.id}}" />
         <input type="hidden" name="questions" value="{{dataValues.question}}" />
-        <input type="radio" class="yes" name="yes_no" value="yes">Yes</input>
-        <input type="radio" class="no" name="yes_no" value="no">No</input>
-        <button type="submit" class="btn btn-primary">Next</button>
+        <input type="radio" class="yes" name="yes_no" value="yes">True</input>
+        <input type="radio" class="no" name="yes_no" value="no">False</input>
+        <input id="next" type="submit" name="quiz" value="Next" />
     </form>
     {{/each}}
 </div>
