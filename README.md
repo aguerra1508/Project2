@@ -62,6 +62,9 @@ None
 
 ## Badges
 
+![GitHub top language](https://img.shields.io/github/languages/top/kevinserrano/Project2_WhoDis)
+![W3C Validation](https://img.shields.io/w3c-validation/html?targetUrl=https%3A%2F%2Fpeaceful-citadel-50333.herokuapp.com%2F)
+
 ## Questions
 
 **Git Hub:**
